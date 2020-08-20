@@ -1,0 +1,90 @@
+spring:
+  application:
+    name: ticket-service
+#  data:
+#    mongodb:
+#      host: localhost
+#      port: 27017
+#      database: mydb
+  datasource:
+    url: jdbc:h2:mem:ticketdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+    platform: org.hibernate.dialect.H2Dialect
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+#  kafka:
+#    consumer:
+#      bootstrap-servers:
+#        - localhost:9092
+#        #- localhost:9093
+#       # - localhost:9094
+#      group-id: test-consumer-group
+#      auto-offset-reset: earliest
+#      enable-auto-commit: false
+#      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#    listener:
+#      ack-mode: manual
+#    producer:
+#      bootstrap-servers:
+#        - localhost:9092
+#        #- localhost:9093
+#        #- localhost:9094
+#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+server:
+  port: 8080
+
+#eureka:
+#  client:
+#    service-url:
+#      default-zone: http://localhost:8761/eureka
+#
+#matrimony-site:
+#  ribbon:
+#    eureka:
+#      enabled: false
+#    listOfServers: localhost:8081, localhost:8082, localhost:8083
+#    ServerListRefreshInterval: 15000
+
+
+mail:
+  host-name: mailer@gmail.com
+  port: 9090
+  from: from@gmail.com
+  default-recipients:
+    - admin@gmail.com
+    - owner@gmail.com
+  additional-headers:
+    redelivery: true
+    secure: true
+  credentials:
+    username: dinesh
+    password: password
+    auth-method: SHA1
+
+conversion:
+  time-in-default-unit: 10
+  time-in-nano: 9ns
+  time-in-days: 2
+
+
+
+#logging:
+#  level:
+#    org:
+#      springframework:
+#        security: DEBUG
+
+
+
+#ns us ms s m h & d - nano, micro, milli seconds, minutes, hours, days
+
+

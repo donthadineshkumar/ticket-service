@@ -7,11 +7,19 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/ticket-service")
 public class TicketController {
     @Autowired
     TicketService ticketService;
+
+    @GetMapping("/queryparamlist")
+    public Integer check(@RequestParam List<Integer> list){
+        return Integer.sum(list.get(0),100);
+    }
+
 
     @GetMapping(value = "/tickets/{ticket_id}")
     public ResponseEntity<?> searchTicket(@PathVariable("ticket_id") long ticketId){

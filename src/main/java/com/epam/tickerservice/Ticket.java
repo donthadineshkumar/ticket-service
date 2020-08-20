@@ -16,6 +16,18 @@ public class Ticket {
     private Date requestedDate;
     private String status;
     private List<Task> taskList;
+    private TicketType ticketType;
+
+    /*public Ticket() {
+    }*/
+
+    public TicketType getTicketType() {
+        return ticketType;
+    }
+
+    public void setTicketType(TicketType ticketType) {
+        this.ticketType = ticketType;
+    }
 
     public Long getTicketNo() {
         return ticketNo;

@@ -15,7 +15,7 @@ public class TaskEntity {
     @Column(name = "TASK_STATUS")
     private String taskStatus;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="TICKET_NO", nullable = false)
+    @JoinColumn(name = "TICKET_NO", nullable = false)
     private TicketEntity ticket;
 
     public long getTaskId() {
