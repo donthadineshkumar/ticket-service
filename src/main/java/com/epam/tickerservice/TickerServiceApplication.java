@@ -8,11 +8,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.Map;
 
 @SpringBootApplication/*(exclude = {H2ConsoleAutoConfiguration.class})*/
 //@EnableEurekaClient
@@ -25,6 +24,7 @@ public class TickerServiceApplication  {
 
 	@Value("${prop1}")
 	static String val;
+
 	public static void main(String[] args) {
 		System.getProperty("prop");
 		System.getProperty("prop1");
@@ -46,6 +46,11 @@ public class TickerServiceApplication  {
 
 	/*@Autowired
 	EurekaClient eurekaClient;*/
+
+	@GetMapping("/hello")
+	public String helloGreetings(){
+		return "Hello World";
+	}
 
 	@PostMapping(value = "/client", consumes = "application/json")
 	public void createClient(Client client) {

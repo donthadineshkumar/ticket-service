@@ -1,17 +1,27 @@
-
 pipeline {
     agent  any
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
-                sh 'mvn --version'
+                echo 'Building...'
+                /*sh 'mvn --version'
                 sh 'echo "Hello World"'
                 timeout(time: 3, unit: 'MINUTES'){
                     sh 'mvn clean package'
                 }
                 retry(3){
                     sh 'echo "ITS DONE!!!"'
-                }
+                }*/
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing...'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
             }
         }
     }

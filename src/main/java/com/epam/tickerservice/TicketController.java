@@ -1,6 +1,7 @@
 package com.epam.tickerservice;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -15,14 +16,32 @@ public class TicketController {
     @Autowired
     TicketService ticketService;
 
+
+    @Autowired
+    MapProperties mapProperties;
+
+    @Value("${test1*}")
+    String greet;
+
+    @Autowired
+    MyConfigPojo pojo;
+
     @GetMapping("/queryparamlist")
     public Integer check(@RequestParam List<Integer> list){
+        System.out.println(pojo.getMap());
         return Integer.sum(list.get(0),100);
     }
+
+        @GetMapping("/read/{str}")
+        public String check(@PathVariable String str){
+            String modifiedStr = str.replaceAll("\\+", "");
+            return modifiedStr;
+        }
 
 
     @GetMapping(value = "/tickets/{ticket_id}")
     public ResponseEntity<?> searchTicket(@PathVariable("ticket_id") long ticketId){
+        System.out.println(mapProperties.getComp());
         Ticket ticket = ticketService.findTicketById(ticketId);
         /*try{*/
             if(!ObjectUtils.isEmpty(ticket))

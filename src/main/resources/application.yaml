@@ -7,7 +7,7 @@ spring:
 #      port: 27017
 #      database: mydb
   datasource:
-    url: jdbc:h2:mem:ticketdb
+    url: jdbc:h2:mem:ticketdb2
     driver-class-name: org.h2.Driver
     username: sa
     password: password
@@ -54,6 +54,18 @@ server:
 #    listOfServers: localhost:8081, localhost:8082, localhost:8083
 #    ServerListRefreshInterval: 15000
 
+test1*: hello
+
+test:
+  comp*:
+    a: a
+    b: b
+
+myConfig:
+  map:
+    1: "my first value"
+    23: "my 23rd value"
+    defaultValue: "cheese"
 
 mail:
   host-name: mailer@gmail.com
